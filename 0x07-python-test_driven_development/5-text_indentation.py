@@ -1,20 +1,26 @@
 #!/usr/bin/python3
-"""Defines a square-printing function."""
+"""
+This program takes a text and search the delimitors (?, : and .)
+if find this characters insert two new lines after this delimitors
+an print the result.
+"""
 
 
-def print_square(size):
-    """Print a square with the # character.
-    Args:
-        size (int): The height/width of the square.
-    Raises:
-        TypeError: If size is not an integer.
-        ValueError: If size is < 0
+def text_indentation(text):
     """
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
-    if size < 0:
-        raise ValueError("size must be >= 0")
+    text_indentation: Insert two new lines after the delimitors ?, : and .
+    After that print the result.
+     Args:
+      - text: str
+    """
+    if not isinstance(text, str):
+        raise TypeError('text must be a string')
 
-    for i in range(size):
-        [print("#", end="") for j in range(size)]
-        print("")
+    delimitors = '.:?'
+    final = text
+
+    for cut in delimitors:
+        final = f'{cut}\n\n'.join(
+            (list(map(lambda w: w.strip(' '), final.split(cut))))
+        )
+    print(final, end='')
