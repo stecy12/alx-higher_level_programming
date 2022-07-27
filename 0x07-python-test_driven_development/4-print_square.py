@@ -1,17 +1,22 @@
 #!/usr/bin/python3
-"""Defines a name-printing function."""
+"""This program print squares with #"""
 
 
-def say_my_name(first_name, last_name=""):
-    """Print a name.
-    Args:
-        first_name (str): The first name to print.
-        last_name (str): The last name to print.
-    Raises:
-        TypeError: If either of first_name or last_name are not strings.
+def print_square(size):
     """
-    if not isinstance(first_name, str):
-        raise TypeError("first_name must be a string")
-    if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
-    print("My name is {} {}".format(first_name, last_name))
+    Function to print a Square with #
+    Args:
+      - size: int
+    """
+
+    if not isinstance(size, int):
+        raise TypeError('size must be an integer')
+
+    if size < 0:
+        raise ValueError('size must be >= 0')
+
+    if size != 0:
+        i = 0
+        while i < size:
+            print("#" * size)
+            i += 1
